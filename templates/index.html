@@ -6,17 +6,7 @@
     <title>CoreInventory</title>
 </head>
 <body>
-    <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Operation</a>
-        <a href="{{ url_for('stock') }}">Stock</a>
-        <a href="#">Move History</a>
-        <a href="#">Settings</a>
-
-        <p>Dashboard</p>
-        <!-- logo comes here -->
-        <img alt="logo" src="#">
-    </nav>
+    {% include "./nav.html" %}
     <div id="Receipt" class="receipt-box">
         <div>
         <h2>Receipt</h2>

@@ -8,16 +8,7 @@
 
 <body>
 
-<nav>
-    <a href="/">Dashboard</a>
-    <a href="#">Operation</a>
-    <a href="/stock">Stock</a>
-    <a href="/move-history">Move History</a>
-    <a href="#">Settings</a>
-
-    <p>Stock</p>
-    <img src="#" alt="logo">
-</nav>
+{% include "./nav.html" %}
 
 <div class="stock-container">
 
@@ -38,7 +29,7 @@
 
         <tbody>
 
-        {% for item in stock_items %}
+        {% for item in stock %}
 
         <tr>
             <td>{{ item.id }}</td>

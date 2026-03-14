@@ -7,17 +7,7 @@
 </head>
 
 <body>
-
-<nav>
-    <a href="/">Dashboard</a>
-    <a href="#">Operation</a>
-    <a href="#">Stock</a>
-    <a href="/move-history">Move History</a>
-    <a href="#">Settings</a>
-
-    <p>Move History</p>
-    <img src="#" alt="logo">
-</nav>
+{% include "./nav.html" %}
 
 <div class="history-container">
 
@@ -40,26 +30,23 @@
         </thead>
 
         <tbody>
-
-            {% for t in transactions %}
-
+        {% for item in trans %}
             <tr>
-
-                <td>{{ t.id }}</td>
-                <td>{{ t.type }}</td>
-                <td>{{ t.SKU }}</td>
-                <td>{{ t.category }}</td>
-                <td>{{ t.quantity }}</td>
-                <td>{{ t.from_location }}</td>
-                <td>{{ t.to_location }}</td>
-                <td>{{ t.schedule_date }}</td>
-                <td>{{ t.status }}</td>
-
+                <th>{{item.id}}</th>
+                <th>{{item.type}}</th>
+                <th>{{item.SKU}}</th>
+                <th>{{item.category}}</th>
+                <th>{{item.quantity}}</th>
+                <th>{{item.from_location}}</th>
+                <th>{{item.to_location}}</th>
+                <th>{{item.schedule_date}}</th>
+                <th>{{item.status}}</th>
             </tr>
-
-            {% endfor %}
+        {% endfor %}
 
         </tbody>
+
+
 
     </table>
 

@@ -2,7 +2,6 @@ import os
 from pprint import pprint
 from datetime import datetime
 from flask import Flask, render_template, session, request, url_for, redirect
-from sqlalchemy import func
 from sqlmodel import select
 
 from models.db import create_db, Users, Stock, Transaction, TransactionType
@@ -86,8 +85,19 @@ def signup():
 def stock():
     if "logged_in" not in session:
         return redirect("login")
+    results = db.exec(select(Stock)).all()
+    result_list = [result.model_dump() for result in results]
+    # print(result_list)
+    return render_template("stock.html", stock=result_list)
 
-    return render_template("stock.html")
+@app.route("/move_history")
+def move_history():
+    if "logged_in" not in session:
+        return redirect("login")
+
+    results = db.exec(select(Transaction)).all()
+    result_list = [result.model_dump() for result in results]
+    return render_template("move_history.html", trans=result_list)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8888)
