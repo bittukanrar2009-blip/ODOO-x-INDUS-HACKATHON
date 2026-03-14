@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Move History - CoreInventory</title>
+    <link rel="stylesheet" href="../static/css/move_history.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="#">Operation</a>
+    <a href="#">Stock</a>
+    <a href="/move-history">Move History</a>
+    <a href="#">Settings</a>
+
+    <p>Move History</p>
+    <img src="#" alt="logo">
+</nav>
+
+<div class="history-container">
+
+    <h1>Transaction History</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Schedule Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for t in transactions %}
+
+            <tr>
+
+                <td>{{ t.id }}</td>
+                <td>{{ t.type }}</td>
+                <td>{{ t.SKU }}</td>
+                <td>{{ t.category }}</td>
+                <td>{{ t.quantity }}</td>
+                <td>{{ t.from_location }}</td>
+                <td>{{ t.to_location }}</td>
+                <td>{{ t.schedule_date }}</td>
+                <td>{{ t.status }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<footer>
+    <p>CoreInventory</p>
+</footer>
+
+</body>
+</html>

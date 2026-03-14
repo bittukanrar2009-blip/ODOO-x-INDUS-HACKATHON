@@ -1,0 +1,234 @@
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+
+/* ================= BODY ================= */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    background-size:300% 300%;
+    animation:bgMove 10s infinite alternate;
+
+    color:white;
+}
+
+
+/* Background animation */
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
+}
+
+
+
+/* ================= NAVBAR ================= */
+
+nav{
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+
+    padding:18px 40px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+
+/* Navigation links */
+
+nav a{
+
+    margin-right:25px;
+
+    text-decoration:none;
+
+    color:#ddd;
+
+    font-size:15px;
+
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+
+/* Dashboard title */
+
+nav p{
+
+    margin-left:auto;
+
+    font-size:18px;
+    font-weight:600;
+}
+
+
+/* Logo */
+
+nav img{
+    width:35px;
+    margin-left:15px;
+}
+
+
+
+/* ================= DASHBOARD CARDS ================= */
+
+#Receipt,
+#Delivery{
+
+    width:520px;            /* bigger width */
+
+    padding:35px;           /* more spacing */
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+
+    transition:0.3s;
+
+    min-height:420px;       /* taller boxes */
+}
+
+
+/* Position side-by-side */
+
+#Receipt{
+    position:absolute;
+    left:12%;
+    top:140px;
+}
+
+#Delivery{
+    position:absolute;
+    right:12%;
+    top:140px;
+}
+
+
+/* Hover animation */
+
+#Receipt:hover,
+#Delivery:hover{
+    transform:translateY(-8px);
+}
+
+
+
+/* ================= CARD TEXT ================= */
+
+h2{
+    margin-bottom:6px;
+}
+
+h3{
+    color:#ccc;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+
+
+/* ================= LIST STYLES ================= */
+
+ul{
+    list-style:none;
+}
+
+li{
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border-radius:6px;
+
+    background:rgba(255,255,255,0.1);
+
+    transition:0.3s;
+}
+
+
+/* Hover */
+
+li:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+
+/* Status colors */
+
+li:nth-child(1){
+    border-left:4px solid #ff4d4d;
+}
+
+li:nth-child(2){
+    border-left:4px solid #00c6ff;
+}
+
+li:nth-child(3){
+    border-left:4px solid #ffc107;
+}
+
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:auto;
+
+    padding:15px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+
+    border-top:1px solid rgba(255,255,255,0.2);
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    #Receipt,
+    #Delivery{
+
+        position:static;
+
+        margin:40px auto;
+
+        width:90%;
+    }
+
+} 

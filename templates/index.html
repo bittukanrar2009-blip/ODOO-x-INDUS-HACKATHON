@@ -9,7 +9,7 @@
     <nav>
         <a href="#">Dashboard</a>
         <a href="#">Operation</a>
-        <a href="#">Stock</a>
+        <a href="{{ url_for('stock') }}">Stock</a>
         <a href="#">Move History</a>
         <a href="#">Settings</a>
 
@@ -20,15 +20,15 @@
     <div id="Receipt" class="receipt-box">
         <div>
         <h2>Receipt</h2>
-        <h3>X to recieve</h3>
+        <h3>{{recieve}} to recieve</h3>
         </div>
 
         <div>
             <!-- late, waiting, operations come here -->
             <ul>
-                <li>late</li>
-                <li>operations</li>
-                <li>waiting</li>
+                {% for item in receipts: %}
+                <li>{{item['SKU']}}: {{item['category']}} {{item['schedule']}}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -36,13 +36,16 @@
     <div id="Delivery" class="delivery-box">
         <div>
         <h2>Delivery</h2>
-        <h3>X to deliver</h3>
+        <h3>{{deliver}} to deliver</h3>
         </div>
 
         <div>
             <!-- late, operations come here -->
-            <li>late</li>
-            <li>operations</li>
+            <ul>
+                {% for item in deliveries: %}
+                <li>{{item['SKU']}}: {{item['category']}} {{item['schedule']}}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 

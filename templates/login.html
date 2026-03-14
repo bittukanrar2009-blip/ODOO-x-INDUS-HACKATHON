@@ -11,6 +11,9 @@
         {% if login_failed %}
             <p>Invalid Login-ID or Password!</p>
         {% endif %}
+        {% if error %}
+            <p>{{error}}</p>
+        {% endif%}
         <div class="form-group">
             <label>Enter Login Id</label>
             <input type="text" name="loginId" required>
@@ -23,7 +26,7 @@
 
         <button class="btn" type="submit">SIGN IN</button>
         <a href="#">Forgot password? |</a>
-        <a href="#">SIGN UP</a>
+        <a href="{{ url_for('signup') }}">SIGN UP</a>
     </form>
     </div>
 </body>
