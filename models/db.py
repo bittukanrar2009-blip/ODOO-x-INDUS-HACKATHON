@@ -82,7 +82,7 @@ if __name__ == "__main__":
         type=TransactionType.Receipt,
         SKU="SKU1001",
         category="Electronics",
-        quantity=10,
+        quantity=5,
         schedule_date=(datetime.now() + timedelta(days=14)),
         status=TransactionStatus.Ready,
         from_location="Supplier",
@@ -93,24 +93,99 @@ if __name__ == "__main__":
         type=TransactionType.Delivery,
         SKU="SKU1002",
         category="Food",
-        quantity=20,
+        quantity=9,
         schedule_date=datetime.now(),
         status=TransactionStatus.Completed,
         from_location="Warehouse",
-        to_location="Store-A"
+        to_location="McDonalds"
     )
 
     t3 = Transaction(
         type=TransactionType.Receipt,
         SKU="SKU1003",
         category="Clothing",
-        quantity=30,
+        quantity=3,
+        schedule_date=(datetime.now() + timedelta(days=7)),
+        status=TransactionStatus.Draft,
+        from_location="Factory",
+        to_location="Warehouse"
+    )
+
+    t4 = Transaction(
+        type=TransactionType.Receipt,
+        SKU="SKU1004",
+        category="Clothing",
+        quantity=6,
         schedule_date=datetime.now(),
         status=TransactionStatus.Draft,
         from_location="Factory",
         to_location="Warehouse"
     )
-    trans = [t1, t2, t3]
+    t5 = Transaction(
+        type=TransactionType.Delivery,
+        SKU="SKU1005",
+        category="Electronics",
+        quantity=7,
+        schedule_date=(datetime.now() + timedelta(days=14)),
+        status=TransactionStatus.Draft,
+        from_location="Warehouse",
+        to_location="Vijay Sales"
+    )
+
+    t6 = Transaction(
+        type=TransactionType.Delivery,
+        SKU="SKU1006",
+        category="Food",
+        quantity=6,
+        schedule_date=datetime.now(),
+        status=TransactionStatus.Draft,
+        from_location="Warehouse",
+        to_location="Dominos"
+    )
+
+    t7 = Transaction(
+        type=TransactionType.Receipt,
+        SKU="SKU1007",
+        category="Electronics",
+        quantity=5,
+        schedule_date=(datetime.now() + timedelta(days=10)),
+        status=TransactionStatus.Draft,
+        from_location="Factory",
+        to_location="Warehouse"
+    )
+    t8 = Transaction(
+        type=TransactionType.Receipt,
+        SKU="SKU1008",
+        category="Clothing",
+        quantity=11,
+        schedule_date=(datetime.now() + timedelta(days=7)),
+        status=TransactionStatus.Draft,
+        from_location="Factory",
+        to_location="Warehouse"
+    )
+
+    t9 = Transaction(
+        type=TransactionType.Receipt,
+        SKU="SKU1009",
+        category="Food",
+        quantity=4,
+        schedule_date=datetime.now(),
+        status=TransactionStatus.Draft,
+        from_location="Factory",
+        to_location="Warehouse"
+    )
+    t10 = Transaction(
+        type=TransactionType.Delivery,
+        SKU="SKU1010",
+        category="Electronics",
+        quantity=9,
+        schedule_date=(datetime.now() + timedelta(days=14)),
+        status=TransactionStatus.Draft,
+        from_location="Warehouse",
+        to_location="Croma"
+    )
+    
+    trans = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
 
     session.add_all(trans)
     session.add_all(users)
