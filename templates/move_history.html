@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
 {% include "./nav.html" %}
 
 <div class="history-container">
@@ -26,27 +27,36 @@
                 <th>To</th>
                 <th>Schedule Date</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
 
         <tbody>
+
         {% for item in trans %}
             <tr>
-                <th>{{item.id}}</th>
-                <th>{{item.type}}</th>
-                <th>{{item.SKU}}</th>
-                <th>{{item.category}}</th>
-                <th>{{item.quantity}}</th>
-                <th>{{item.from_location}}</th>
-                <th>{{item.to_location}}</th>
-                <th>{{item.schedule_date}}</th>
-                <th>{{item.status}}</th>
+                <td>{{item.id}}</td>
+                <td>{{item.type}}</td>
+                <td>{{item.SKU}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.from_location}}</td>
+                <td>{{item.to_location}}</td>
+                <td>{{item.schedule_date}}</td>
+                <td>{{item.status}}</td>
+
+                <td>
+                    {% if item.type == "Delivery" and item.status != "Completed" %}
+                        <button class="complete-btn">Complete</button>
+                    {% else %}
+                        <span class="completed-text">Done</span>
+                    {% endif %}
+                </td>
+
             </tr>
         {% endfor %}
 
         </tbody>
-
-
 
     </table>
 
