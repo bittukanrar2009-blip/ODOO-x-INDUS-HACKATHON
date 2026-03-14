@@ -1,4 +1,4 @@
-/* Reset */
+/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -8,32 +8,23 @@
 }
 
 
-/* Background */
+/* ================= BODY ================= */
 
 body{
 
     min-height:100vh;
 
+    display:flex;
+    flex-direction:column;
+
     background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    background-size:300% 300%;
-    animation:bgMove 10s infinite alternate;
 
     color:white;
 }
 
 
-/* Background animation */
 
-@keyframes bgMove{
-
-    0%{background-position:0% 50%;}
-    100%{background-position:100% 50%;}
-
-}
-
-
-
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 nav{
 
@@ -44,11 +35,13 @@ nav{
 
     padding:18px 40px;
 
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
+    background:#203a43;
 
-    border-bottom:1px solid rgba(255,255,255,0.2);
+    border-bottom:1px solid #2c5364;
 }
+
+
+/* Navigation links */
 
 nav a{
 
@@ -56,32 +49,42 @@ nav a{
 
     text-decoration:none;
 
-    color:#ddd;
+    color:#d9d9d9;
 
     font-size:15px;
 
+    transition:0.3s;
 }
 
 nav a:hover{
-    color:white;
+    color:#00c6ff;
 }
+
+
+/* Page title */
 
 nav p{
 
     margin-left:auto;
 
     font-size:18px;
+
     font-weight:600;
 }
 
+
+/* Logo */
+
 nav img{
+
     width:35px;
+
     margin-left:15px;
 }
 
 
 
-/* MAIN CONTAINER */
+/* ================= MAIN CONTAINER ================= */
 
 .history-container{
 
@@ -91,26 +94,29 @@ nav img{
 
     padding:30px;
 
-    border-radius:15px;
+    border-radius:12px;
 
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(18px);
+    background:#203a43;
 
     box-shadow:0 15px 35px rgba(0,0,0,0.5);
+
+    flex:1;   /* pushes footer to bottom */
 }
 
 
-/* Page Title */
+
+/* ================= PAGE TITLE ================= */
 
 .history-container h1{
 
     margin-bottom:25px;
 
+    color:#00c6ff;
 }
 
 
 
-/* TABLE */
+/* ================= TABLE ================= */
 
 table{
 
@@ -122,12 +128,11 @@ table{
 
 
 
-/* Table Head */
+/* TABLE HEADER */
 
 thead{
 
-    background:rgba(255,255,255,0.15);
-
+    background:#2c5364;
 }
 
 th{
@@ -136,51 +141,75 @@ th{
 
     text-align:left;
 
+    color:#ffffff;
 }
 
 
 
-/* Table Body */
+/* TABLE DATA */
 
 td{
 
     padding:12px;
 
-    border-bottom:1px solid rgba(255,255,255,0.15);
-
+    border-bottom:1px solid #2c5364;
 }
 
 
 
-/* Row Hover */
+/* ROW HOVER EFFECT */
 
 tbody tr:hover{
 
-    background:rgba(255,255,255,0.1);
-
+    background:rgba(255,255,255,0.08);
 }
 
 
 
-/* Status Colors */
+/* STATUS COLUMN */
 
 td:last-child{
 
     font-weight:600;
 
+    color:#00c6ff;
 }
 
 
 
-/* Footer */
+/* ================= FOOTER ================= */
 
 footer{
+
+    width:100%;
 
     text-align:center;
 
     padding:15px;
 
-    margin-top:40px;
+    background:#203a43;
 
-    background:rgba(255,255,255,0.08);
+    border-top:1px solid #2c5364;
+
+    margin-top:auto;
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .history-container{
+
+        width:95%;
+
+        padding:20px;
+    }
+
+    table{
+
+        font-size:14px;
+    }
+
 }
