@@ -69,7 +69,14 @@ if __name__ == "__main__":
     s1 = Stock(name="Laptop", SKU="SKU1001", category="Electronics", unit_of_measurement="pcs", quantity=25)
     s2 = Stock(name="Rice Bag", SKU="SKU1002", category="Food", unit_of_measurement="kg", quantity=100)
     s3 = Stock(name="T-Shirt", SKU="SKU1003", category="Clothing", unit_of_measurement="pcs", quantity=60)
-    stocks = [s1, s2, s3]
+    s4 = Stock(name="Trouser", SKU="SKU1004", category="Clothing", unit_of_measurement="pcs", quantity=80)
+    s5 = Stock(name="Mobile", SKU="SKU1005", category="Electronics", unit_of_measurement="pcs", quantity=100)
+    s6 = Stock(name="Milk", SKU="SKU1006", category="Food", unit_of_measurement="l", quantity=70)
+    s7 = Stock(name="Bulb", SKU="SKU1007", category="Electronics", unit_of_measurement="pcs", quantity=50)
+    s8 = Stock(name="Shoes", SKU="SKU1008", category="Clothing", unit_of_measurement="pcs", quantity=110)
+    s9 = Stock(name="Refined Oil", SKU="SKU1009", category="Food", unit_of_measurement="l", quantity=80)
+    s10 = Stock(name="Refrigerator", SKU="SKU10010", category="Electronics", unit_of_measurement="pcs", quantity=90)
+    stocks = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10]
 
     t1 = Transaction(
         type=TransactionType.Receipt,
