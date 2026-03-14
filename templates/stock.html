@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stock - CoreInventory</title>
+    <link rel="stylesheet" href="../static/css/stock.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="#">Operation</a>
+    <a href="/stock">Stock</a>
+    <a href="/move-history">Move History</a>
+    <a href="#">Settings</a>
+
+    <p>Stock</p>
+    <img src="#" alt="logo">
+</nav>
+
+<div class="stock-container">
+
+    <h1>Inventory Stock</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in stock_items %}
+
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.SKU }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.unit_of_measurement }}</td>
+            <td>{{ item.quantity }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<footer>
+    <p>CoreInventory</p>
+</footer>
+
+</body>
+</html>
