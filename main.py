@@ -2,6 +2,7 @@ import os
 from pprint import pprint
 from datetime import datetime
 from flask import Flask, render_template, session, request, url_for, redirect
+from sqlalchemy import inspect
 from sqlmodel import select
 from models.db import create_db, Users, Stock, Transaction, TransactionType, TransactionStatus
 from utils.database_utils import update_stock_quantity
@@ -128,9 +129,49 @@ def move_history():
     result_list = [result.model_dump() for result in results]
     return render_template("move_history.html", trans=result_list)
 
-@app.route("/operate", methods=['POST', 'GET'])
-def operate():
+
+@app.route("/operation")
+def operation():
     return render_template("operation.html")
+
+@app.route("/operate", methods=["POST"])
+def operate():
+    if "logged_in" not in session:
+        return redirect(url_for("login"))
+
+    t_type = request.form.get("type")
+    sku = request.form.get("SKU")
+    category = request.form.get("category")
+    quantity = request.form.get("quantity")
+    schedule_date_str = request.form.get("schedule_date")
+    status = request.form.get("status")
+    from_location = request.form.get("from_location")
+    to_location = request.form.get("to_location")
+
+    schedule_date = None
+    if schedule_date_str:
+        try:
+            schedule_date = datetime.strptime(schedule_date_str, "%Y-%m-%dT%H:%M")
+        except ValueError:
+            pass
+            
+    qty = int(float(quantity)) if quantity else 0
+
+    new_transaction = Transaction(
+        type=t_type,
+        SKU=sku,
+        category=category,
+        quantity=qty,
+        schedule_date=schedule_date,
+        status=status,
+        from_location=from_location,
+        to_location=to_location
+    )
+
+    db.add(new_transaction)
+    db.commit()
+
+    return redirect(url_for("move_history"))
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8888)
